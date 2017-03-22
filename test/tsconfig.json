@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+<<<<<<< HEAD
+		"target": "es5",
+		"module": "commonjs",
+		"outDir": "./out",
+		"experimentalDecorators": true
+	},
+	
+=======
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "./out",
+		"experimentalDecorators":true
+	},
+>>>>>>> 9659d5682ee0d4ddc1f634f835f90b588f2b496d
+	"include": [
+		"src/**/*.ts",
+		"../engine/out/**/*.d.ts"
+	]
+}

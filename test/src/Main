@@ -1,0 +1,62 @@
+
+    private createGameScene():void {
+        var stageW:number = this.stage.stageWidth;
+        var stageH:number = this.stage.stageHeight;
+        
+        var newMap:MainMap=new MainMap();
+        newMap.x=0;
+        newMap.y=0;
+        this.addChild(newMap);
+
+        var Character:Player=new Player();
+        Character.x=0;
+        Character.y=0;
+        this.addChild(Character);
+
+        var taskService: TaskService = TaskService.getInstance();
+        var task_0:Task=TaskFactory.createOneTask("task_0");
+        var task_1:Task=TaskFactory.createOneTask("task_1");
+        // var task_0: Task = new Task("task_0", "npc_0", "npc_1", Task.ACCEPTABLE, new NPCTalkTaskCondition(), 1, "null", "task_1");
+        // var task_1: Task = new Task("task_1", "npc_1", "npc_1", Task.UNACCEPTALBE, new KillMonsterTaskCondition(), 1, "monster_png", "null");
+
+
+        var npc_0:NPC=new NPC("npc_0","npc_0_png");
+        npc_0.x=128;
+        npc_0.y=128;
+        this.addChild(npc_0);
+
+        var npc_1:NPC=new NPC("npc_1","npc_1_png");
+        npc_1.x=576;
+        npc_1.y=576;
+        this.addChild(npc_1);
+
+        var monster:Monster=MonsterFactory.createOneMonster("monster_png");
+        monster.x=256;
+        monster.y=256;
+        this.addChild(monster);
+
+        var user:User=User.getInstance();
+        var hero:Hero=new Hero(10,10);
+        var equipment:Equipment=new Equipment(10,"w1_jpg");
+        var equipment1:Equipment=new Equipment(20,"w2_jpg");
+        var equipment2:Equipment=new Equipment(999,"w3_jpg");
+        var jewll:Jewll=new Jewll(10);
+        var jewll1:Jewll=new Jewll(20);
+        var jewll2:Jewll=new Jewll(999);
+        user.addHero(hero);
+        hero.addEquipment(equipment);
+        hero.addEquipment(equipment1);
+        hero.addEquipment(equipment2);
+        equipment.addJewll(jewll);
+        equipment1.addJewll(jewll1);
+        equipment2.addJewll(jewll2);   
+
+        var gameScene:GameScene=new GameScene(Character,newMap,npc_0,npc_1,monster,this);
+        GameScene.replaceScene(gameScene);     
+
+        var UImanager:UiManager=new UiManager(this);
+        UiManager.replaceCurrentUiManager(UImanager);
+    }
+}
+
+
